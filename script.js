@@ -89,7 +89,7 @@
       line: "A meta é fazer um vaso. A previsão é sair um cinzeiro.",
       desc: "A gente se inscreve numa oficina de cerâmica no Sesc, suja a mão de barro e tenta fazer alguma coisa bonita no torno. A meta é um vaso. O mais provável é sair uma tigela torta. Cada um fica com a peça do outro, do jeito que ela sair.",
       reply: "Se ficar torto, a gente diz que é arte contemporânea.",
-      msg: "Oi! 🏺 Topo a oficina de cerâmica no Sesc. Vamos ver as datas? Já aviso que meu vaso vai sair torto.",
+      msg: "Oi! 🏺 Topo a oficina de cerâmica no Sesc. Vamos ver as datas? Já aviso que meu vaso vai sair melhor.",
       art: "clay",
     },
   ];
