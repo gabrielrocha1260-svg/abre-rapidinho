@@ -6,13 +6,13 @@
   "use strict";
 
   /* ---------- Configuração ----------
-     Coloque seu número com DDI e DDD, só dígitos. Ex.: "5511912345678".
-     Vazio: o WhatsApp abre e pede pra escolher o contato. */
+     Número do WhatsApp que recebe as respostas: DDI + DDD + número,
+     só dígitos (sem +, espaço ou hífen). Usado por TODOS os botões. */
   const CONFIG = {
-    whatsapp: "",
+    whatsapp: "5511979938429",
   };
 
-  /* ---------- As cinco rodadas ---------- */
+  /* ---------- As seis rodadas ---------- */
   const DATES = [
     {
       id: "gastronomia",
@@ -24,7 +24,7 @@
       line: "Eu escolho um lugar: se você gostar, 1 a 0 pra mim. Depois é a sua vez.",
       desc: "Funciona assim: eu escolho o primeiro lugar e, se você gostar, é 1 a 0 pra mim. Aí você escolhe o próximo e, se eu gostar, 1 a 0 pra você. Salgado, lanche, sobremesa: a gente vai alternando até não caber mais nada. Empate também vale, desde que a comida seja boa.",
       reply: "Aviso que eu jogo pra ganhar. Mas aceito perder se a sobremesa for boa.",
-      msg: "Topo o tour gastronômico valendo pontos. Quem escolhe primeiro?",
+      msg: "Oi! 🍽️ Vi o convite e topo o tour gastronômico valendo pontos. Quem escolhe o primeiro lugar: eu ou você?",
       art: "food",
     },
     {
@@ -37,7 +37,7 @@
       line: "Primeira pauta: e a propriedade privada desse coração, camarada?",
       desc: "Uma missão histórica com prioridades ridículas: fundar um comitê revolucionário de dois membros, pintar cartazes em cartolina, escrever um manifesto à mão e aprovar tudo por unanimidade. O sistema provavelmente continua de pé, mas a assembleia promete.",
       reply: "Comitê central: você e eu. Quórum garantido, pauta aprovada por unanimidade.",
-      msg: "Topo a revolução. Bora escrever o manifesto, camarada?",
+      msg: "Oi, camarada! ✊ Topo organizar a revolução. Já posso começar a escrever o manifesto (e discutir a propriedade privada desse coração)?",
       art: "manifesto",
     },
     {
@@ -50,7 +50,7 @@
       line: "Se ganhar, a gente comemora. Se perder, a gente reclama do juiz junto.",
       desc: "Noventa minutos de tensão, reclamação com a arbitragem e aquele acréscimo que não acaba nunca. Se ganhar, a gente comemora. Se perder, passa raiva junto. Em qualquer cenário, sai uma história pra contar.",
       reply: "Não garanto o resultado. Garanto a companhia até o último minuto de acréscimo.",
-      msg: "Escolhi o jogo do Corinthians. Vamos passar raiva juntos?",
+      msg: "Oi! ⚽ Escolhi assistir ao Corinthians e passar raiva juntos. Qual jogo vai ser? Já tô pronta pros acréscimos.",
       art: "match",
     },
     {
@@ -63,7 +63,7 @@
       line: "Previsão de entrega: três anos. Previsão de diversão: alta.",
       desc: "Começa como passatempo e vira obra de engenharia. Talvez a gente leve três anos pra terminar, depois de passar uma tarde inteira procurando a mesma pecinha. Pelo menos é um ótimo motivo pra continuar marcando encontros.",
       reply: "O manual tem 4 mil páginas. A gente lê a primeira e improvisa o resto.",
-      msg: "Escolhi o Lego de 500 mil peças. Primeira peça quando?",
+      msg: "Oi! 🧱 Topo montar o Lego de 500 mil peças. Quando a gente encaixa a primeira?",
       art: "bricks",
     },
     {
@@ -76,8 +76,21 @@
       line: "Parece rápido. Não é. Vai precisar de vários encontros.",
       desc: "A gente começa achando que fecha numa tarde e termina percebendo que a discografia não acaba. Os clássicos, as que a gente nem sabia que existiam, e alguma hora alguém vai começar a cantar junto. Zerar a missão vai exigir mais de um encontro.",
       reply: "Se a gente não terminar hoje, tem que marcar o próximo. É regra do desafio.",
-      msg: "Escolhi a maratona do Luan Santana. Faixa 1 quando?",
+      msg: "Oi! 🎶 Escolhi a maratona do Luan Santana. Bora marcar o dia da faixa 1?",
       art: "music",
+    },
+    {
+      id: "ceramica",
+      round: "06",
+      cat: "tranquilo",
+      tag: "Tranquilo",
+      kicker: "Missão 06 · Mão na massa",
+      title: "Oficina de cerâmica no Sesc",
+      line: "A meta é fazer um vaso. A previsão é sair um cinzeiro.",
+      desc: "A gente se inscreve numa oficina de cerâmica no Sesc, suja a mão de barro e tenta fazer alguma coisa bonita no torno. A meta é um vaso. O mais provável é sair uma tigela torta. Cada um fica com a peça do outro, do jeito que ela sair.",
+      reply: "Se ficar torto, a gente diz que é arte contemporânea.",
+      msg: "Oi! 🏺 Topo a oficina de cerâmica no Sesc. Vamos ver as datas? Já aviso que meu vaso vai sair torto.",
+      art: "clay",
     },
   ];
 
@@ -170,6 +183,17 @@
       return svgWrap(s, "Peças de montar empilhadas, faltando uma");
     },
 
+    clay: () => svgWrap(`
+      <text x="20" y="30" font-family="Anton, sans-serif" font-size="14" fill="${W}" letter-spacing="1">PEÇA Nº 1 · FORMATO: A DEFINIR</text>
+      <ellipse cx="160" cy="150" rx="92" ry="14" fill="none" stroke="${G}" stroke-width="2"/>
+      <ellipse class="spin-wheel" cx="160" cy="146" rx="70" ry="10" fill="#141414" stroke="${G2}" stroke-width="2" stroke-dasharray="10 8"/>
+      <path d="M134 144 C126 128 138 116 144 104 C148 96 146 88 142 82 H178 C174 88 172 96 176 104 C182 116 194 128 186 144 Z" fill="none" stroke="${W}" stroke-width="3" stroke-linejoin="round"/>
+      <ellipse cx="160" cy="82" rx="18" ry="4" fill="none" stroke="${W}" stroke-width="3"/>
+      <path d="M142 122 C152 126 168 126 178 122" stroke="${R}" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M220 96 c10 -4 16 4 10 12" stroke="${G2}" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="3 4"/>
+      <path d="M100 96 c-10 -4 -16 4 -10 12" stroke="${G2}" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="3 4"/>`,
+      "Vaso de barro girando no torno"),
+
     music: () => {
       let bars = "";
       const hs = [22, 48, 34, 70, 56, 88, 40, 64, 30, 76, 52, 26, 60, 44];
@@ -214,6 +238,7 @@
     const f = $("[data-focus]", screens[name]);
     if (f) f.focus({ preventScroll: true });
     if (push) { try { history.pushState({ s: name }, "", name === "invite" ? location.pathname : `#${name}`); } catch (_) {} }
+    if (name !== "invite" && typeof restore === "function") restore();
     if (name === "catalog") kickScore();
   }
 
@@ -240,44 +265,127 @@
   let tries = 0;
 
   let runT;
+  let lastDodge = 0;
+  let loose = false;
+
+  /* área realmente visível (no Android considera zoom e barra de endereço) */
+  function viewBox() {
+    const vv = window.visualViewport;
+    return vv
+      ? { x: vv.offsetLeft, y: vv.offsetTop, w: vv.width, h: vv.height }
+      : { x: 0, y: 0, w: document.documentElement.clientWidth, h: innerHeight };
+  }
+
+  /* Na primeira fuga o botão sai do ingresso (que tem máscara e cortaria
+     qualquer coisa fora dele) e passa a correr numa camada fixa da tela.
+     O slot original fica reservado pra não pular o layout. */
+  function release() {
+    if (loose) return;
+    const r = btnNo.getBoundingClientRect();
+    noSlot.style.width = `${r.width}px`;
+    noSlot.style.height = `${r.height}px`;
+    btnNo.classList.add("is-loose");
+    btnNo.style.transition = "none";
+    btnNo.style.transform = `translate(${r.left}px, ${r.top}px)`;
+    const hadFocus = document.activeElement === btnNo;
+    document.body.appendChild(btnNo);
+    if (hadFocus) btnNo.focus({ preventScroll: true });
+    void btnNo.offsetWidth;            // aplica a posição inicial sem animar
+    btnNo.style.transition = "";
+    loose = true;
+    addEventListener("scroll", keepClear, { passive: true });
+    addEventListener("resize", keepClear);
+    if (window.visualViewport) visualViewport.addEventListener("resize", keepClear);
+  }
+
+  function restore() {
+    if (!loose) return;
+    removeEventListener("scroll", keepClear);
+    removeEventListener("resize", keepClear);
+    if (window.visualViewport) visualViewport.removeEventListener("resize", keepClear);
+    btnNo.classList.remove("is-loose", "running", "has-legs");
+    btnNo.style.transform = "";
+    const hadFocus = document.activeElement === btnNo;
+    noSlot.appendChild(btnNo);
+    if (hadFocus) btnNo.focus({ preventScroll: true });
+    noSlot.style.width = noSlot.style.height = "";
+    loose = false;
+  }
+
+  /* sorteia um lugar visível: dentro da tela, longe de onde está,
+     sem cobrir o "sim" nem o link de recusa */
+  function place() {
+    const v = viewBox();
+    const b = btnNo.getBoundingClientRect();
+    const legs = 44;                    // altura das perninhas abaixo do botão
+    const m = 12;
+    const minX = v.x + m, maxX = v.x + v.w - b.width - m;
+    const minY = v.y + m, maxY = v.y + v.h - b.height - legs - m;
+    const avoid = [$("#btnYes"), $("#btnDeclineForReal")]
+      .filter((el) => el && el.offsetParent !== null)
+      .map((el) => el.getBoundingClientRect());
+    const pad = 16;
+    const clash = (l, t) => avoid.some((r) =>
+      l < r.right + pad && l + b.width > r.left - pad && t < r.bottom + pad && t + b.height + legs > r.top - pad);
+
+    let best = null, bestD = -1;
+    for (let k = 0; k < 80; k++) {
+      const l = minX + Math.random() * Math.max(0, maxX - minX);
+      const t = minY + Math.random() * Math.max(0, maxY - minY);
+      if (clash(l, t)) continue;
+      const d = Math.hypot(l - b.left, t - b.top);
+      if (d > Math.min(v.w, v.h) * 0.3) { best = [l, t]; break; }
+      if (d > bestD) { bestD = d; best = [l, t]; }
+    }
+    if (!best) best = [minX, maxY];     // canto inferior esquerdo como último recurso
+    const rot = (Math.random() * 10 - 5).toFixed(1);
+    btnNo.style.transform = `translate(${best[0].toFixed(0)}px, ${best[1].toFixed(0)}px) rotate(${rot}deg)`;
+  }
+
+  /* ao rolar/girar a tela, garante que continua visível e longe do "sim" */
+  function keepClear() {
+    if (!loose || screens.invite.hidden) return;
+    const v = viewBox();
+    const b = btnNo.getBoundingClientRect();
+    const y = $("#btnYes").getBoundingClientRect();
+    const out = b.left < v.x || b.top < v.y || b.right > v.x + v.w || b.bottom + 44 > v.y + v.h;
+    const over = b.left < y.right && b.right > y.left && b.top < y.bottom && b.bottom > y.top;
+    if (out || over) place();
+  }
+
   function dodge() {
+    const now = performance.now();
+    if (now - lastDodge < 350) return; // um toque = uma fuga (evita pointerdown + click em dobro)
+    lastDodge = now;
     tries++;
-    choices.classList.add("has-legs");
-    btnNo.classList.add("running");
+    release();
+    btnNo.classList.add("has-legs", "running");
     clearTimeout(runT);
     runT = setTimeout(() => btnNo.classList.remove("running"), 650);
-    const box = choices.getBoundingClientRect();
-    const slot = noSlot.getBoundingClientRect();
-    const b = btnNo.getBoundingClientRect();
-    const yes = $("#btnYes").getBoundingClientRect();
-    const pad = 10;
-    const maxX = Math.max(0, box.width - b.width);
-    const hits = (l, t) => !(l + b.width < yes.left - pad || l > yes.right + pad || t + b.height < yes.top - pad || t > yes.bottom + pad);
-    // procura um lugar novo: longe de onde está e nunca em cima do "sim"
-    let dx = 0, dy = 0;
-    for (let k = 0; k < 40; k++) {
-      const l = box.left + Math.random() * maxX;
-      const t = slot.top + (Math.random() - 0.3) * 56;
-      if (hits(l, t)) continue;
-      if (Math.hypot(l - b.left, t - b.top) < 50 && k < 30) continue;
-      dx = l - slot.left; dy = t - slot.top; break;
-    }
-    btnNo.style.transform = `translate(${dx.toFixed(0)}px, ${dy.toFixed(0)}px) rotate(${(Math.random() * 10 - 5).toFixed(1)}deg)`;
+    place();
 
     quip.textContent = QUIPS[(tries - 1) % QUIPS.length];
     quip.classList.remove("pop"); void quip.offsetWidth; quip.classList.add("pop");
     if (tries >= 3) declineWrap.hidden = false;
   }
 
-  btnNo.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") dodge(); });
-  btnNo.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") { e.preventDefault(); dodge(); } });
+  if (window.PointerEvent) {
+    // mouse: foge ao chegar perto; toque/caneta: foge no instante em que o dedo encosta
+    btnNo.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") dodge(); });
+    btnNo.addEventListener("pointerdown", (e) => { e.preventDefault(); dodge(); });
+  } else {
+    btnNo.addEventListener("touchstart", (e) => { e.preventDefault(); dodge(); }, { passive: false });
+    btnNo.addEventListener("mouseenter", dodge);
+  }
+  // click: teclado (Enter/Espaço) e qualquer clique que escape; nunca recusa o convite
   btnNo.addEventListener("click", (e) => { e.preventDefault(); dodge(); });
 
-  $("#btnDeclineForReal").addEventListener("click", () => show("declined"));
-  $("#btnBack").addEventListener("click", () => {
-    tries = 0; btnNo.style.transform = ""; choices.classList.remove("has-legs"); btnNo.classList.remove("running"); quip.textContent = ""; declineWrap.hidden = true;
-    show("invite");
-  });
+  function resetNo() {
+    tries = 0; restore(); quip.textContent = ""; declineWrap.hidden = true;
+  }
+
+  $("#btnDeclineForReal").addEventListener("click", () => { restore(); show("declined"); });
+  $("#btnBack").addEventListener("click", () => { resetNo(); show("invite"); });
 
   /* ---------- "Sim" + cortina ---------- */
   const curtain = $("#curtain");
@@ -354,7 +462,7 @@
     $("#detailTitle").textContent = d.title;
     $("#detailDesc").textContent = d.desc;
     $("#detailReply").textContent = d.reply;
-    $("#btnWhats").href = waLink(`Oi! Vi o convite. ${d.msg}`);
+    $("#btnWhats").href = waLink(d.msg);
     const warn = $("#whatsWarn");
     warn.hidden = !!CONFIG.whatsapp;
     warn.textContent = CONFIG.whatsapp ? "" : "O WhatsApp vai pedir pra escolher o contato: é só escolher o meu.";
@@ -371,7 +479,7 @@
   dlg.addEventListener("close", () => { if (opener) opener.focus(); });
 
   /* ---------- Sugerir outro ---------- */
-  $("#btnSuggest").href = waLink("Oi! Vi o convite. Tenho outra ideia de rolê: ");
+  $("#btnSuggest").href = waLink("Oi! 💡 Vi o convite e tenho outra ideia de rolê pra gente: ");
   if (!CONFIG.whatsapp) {
     const w = $("#suggestWarn");
     w.hidden = false;
