@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Amanda Moreira, poderia te chamar pra sair?</title>
+  <meta name="description" content="Um convite um pouco diferente, com cinco ideias pra gente escolher.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="noindex">
+
+  <!-- Prévia do link no WhatsApp -->
+  <meta property="og:title" content="Olá, Amanda Moreira. Poderia te chamar pra sair?">
+  <meta property="og:description" content="Um convite um pouco diferente, com cinco ideias pra gente escolher.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Crect x='9' y='4' width='3' height='24' fill='%23fff'/%3E%3Crect x='20' y='4' width='3' height='24' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23e3121b'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-screen="invite">
+  <p class="sr-only" id="live" aria-live="polite"></p>
+
+  <!-- arquibancada ao fundo: listras, refletores e linhas de campo -->
+  <div class="stadium" aria-hidden="true">
+    <span class="stadium__light stadium__light--l"></span>
+    <span class="stadium__light stadium__light--r"></span>
+  </div>
+
+  <main>
+    <!-- TELA 1: o convite (um ingresso) -->
+    <section class="screen" id="screen-invite" aria-labelledby="invite-title">
+      <header class="topbar">
+        <span>Convite para uma pessoa só</span><span class="topbar__line" aria-hidden="true"></span><span>edição única</span>
+      </header>
+
+      <article class="ticket">
+        <div class="ticket__main">
+          <div class="ticket__head">
+            <span class="ticket__kicker">Ingresso · Temporada 2026</span>
+            <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+              <defs><path id="sc" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <g class="stamp__ring"><text><textPath href="#sc">pensado com calma ✶ sem pressão ✶ só um convite ✶</textPath></text></g>
+              <circle cx="60" cy="60" r="12" fill="#e3121b"/>
+            </svg>
+          </div>
+
+          <h1 id="invite-title">
+            <span class="h1__hello">Olá, Amanda Moreira.</span>
+            <span class="h1__ask">Poderia te chamar pra sair?</span>
+          </h1>
+
+          <div class="invite__text">
+            <p>Eu poderia ter só puxado assunto e mandado um "bora sair?".</p>
+            <p>Mas me deu vontade de caprichar um pouco.</p>
+            <p>Então fiz um convite <mark>um pouco diferente</mark>, com cinco ideias pra gente escolher juntos.</p>
+          </div>
+
+          <div class="choices">
+            <button class="btn btn--yes" id="btnYes" type="button">Sim, eu topo</button>
+            <span class="no-slot"><button class="btn btn--no" id="btnNo" type="button">Não<svg class="legs" viewBox="4 0 48 30" aria-hidden="true" focusable="false">
+              <g class="leg leg--l"><path class="leg__shin" d="M18 0 V17"/><rect class="leg__sock" x="15.5" y="11" width="5" height="6" rx="1"/><path class="leg__boot" d="M20.5 17 V22.5 H8 Q5 22.5 5.5 20 Q6 18 10 17.5 Z"/><path class="leg__stripe" d="M11 19.5 H17"/><g class="leg__studs"><circle cx="9" cy="24" r="1.2"/><circle cx="13.5" cy="24" r="1.2"/><circle cx="18.5" cy="24" r="1.2"/></g></g>
+              <g class="leg leg--r"><path class="leg__shin" d="M38 0 V17"/><rect class="leg__sock" x="35.5" y="11" width="5" height="6" rx="1"/><path class="leg__boot" d="M40.5 17 V22.5 H28 Q25 22.5 25.5 20 Q26 18 30 17.5 Z"/><path class="leg__stripe" d="M31 19.5 H37"/><g class="leg__studs"><circle cx="29.0" cy="24" r="1.2"/><circle cx="33.5" cy="24" r="1.2"/><circle cx="38.5" cy="24" r="1.2"/></g></g>
+            </svg></button></span>
+          </div>
+          <p class="quip" id="quip" aria-live="polite"></p>
+          <p id="declineWrap" hidden><button class="link" id="btnDeclineForReal" type="button">Quer responder não sem brincadeira? Tudo bem, é só tocar aqui.</button></p>
+        </div>
+
+        <aside class="ticket__stub" aria-label="Dados do ingresso">
+          <dl>
+            <div><dt>Setor</dt><dd>Ao meu lado</dd></div>
+            <div><dt>Portão</dt><dd>Quando quiser</dd></div>
+            <div><dt>Rodadas</dt><dd>05</dd></div>
+          </dl>
+          <span class="ticket__code" aria-hidden="true"></span>
+        </aside>
+      </article>
+
+      <p class="foot">Feito à mão, com carinho e um pouco de CSS.</p>
+    </section>
+
+    <!-- TELA 2: as ideias (a tabela da temporada) -->
+    <section class="screen" id="screen-catalog" aria-labelledby="catalog-title" hidden>
+      <header class="catalog-head">
+        <div class="scoreboard" aria-label="Placar: sim 1, não 0">
+          <span class="scoreboard__team">Sim</span>
+          <span class="scoreboard__digits" aria-hidden="true"><b class="flip" id="scoreYes">0</b><i>×</i><b>0</b></span>
+          <span class="scoreboard__team">Não</span>
+          <span class="scoreboard__clock" aria-hidden="true"><i class="dot"></i>ao vivo</span>
+        </div>
+
+        <h2 id="catalog-title" tabindex="-1" data-focus>Boa. Agora escolhe uma jogada.</h2>
+        <p>São cinco rodadas nesta temporada. Algumas são tranquilas, outras são só pela resenha. Nenhuma é reserva: são pontos de partida pra gente combinar.</p>
+        <div class="chips" id="chips" role="group" aria-label="Filtrar por categoria"></div>
+      </header>
+
+      <ul class="cards" id="cards"></ul>
+
+      <footer class="catalog-foot">
+        <p class="catalog-foot__lead">Cinco planos, nenhuma obrigação.</p>
+        <p>Pode escolher por qual começar, topar todos aos poucos ou sugerir outro. Eu topo ouvir a sua.</p>
+        <a class="btn" id="btnSuggest" target="_blank" rel="noopener">Sugerir outro rolê</a>
+        <p class="warn" id="suggestWarn" hidden></p>
+      </footer>
+    </section>
+
+    <!-- TELA 3: o "não" respeitado -->
+    <section class="screen" id="screen-declined" aria-labelledby="declined-title" hidden>
+      <div class="ticket ticket--plain">
+        <div class="ticket__main">
+          <span class="ticket__kicker">Fim de jogo</span>
+          <h2 id="declined-title" tabindex="-1" data-focus>Tudo bem, sem climão.</h2>
+          <p>Valeu por ter olhado até aqui. O botão "não" mandou dizer que já se acalmou.</p>
+          <button class="link" id="btnBack" type="button">Voltar ao convite</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detalhes da ideia -->
+  <dialog class="detail" id="detail" aria-labelledby="detailTitle">
+    <div class="detail__ph" id="detailPh"></div>
+    <div class="detail__body">
+      <span class="tag" id="detailTag"></span>
+      <h3 id="detailTitle"></h3>
+      <p id="detailDesc"></p>
+      <p class="reply" id="detailReply"></p>
+      <a class="btn btn--yes btn--block" id="btnWhats" target="_blank" rel="noopener">Escolher essa</a>
+      <p class="warn" id="whatsWarn" hidden></p>
+      <p class="fine">Abre o WhatsApp com uma mensagem pronta. Você confere e envia se quiser. Ainda não é reserva.</p>
+      <button class="btn btn--block" type="button" data-close>Ver outras ideias</button>
+    </div>
+  </dialog>
+
+  <div class="curtain" id="curtain" aria-hidden="true"><p>boa.</p></div>
+  <noscript><p class="noscript">Este convite precisa de JavaScript ligado pra funcionar.</p></noscript>
+</body>
+</html>
